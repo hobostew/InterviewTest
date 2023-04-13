@@ -51,10 +51,10 @@ function circleCircleCollide(obj1Data, obj2Data) {
 }
 
 function rectRectCollide(obj1Data, obj2Data) {
-    if (((obj1Data.x + obj1Data.width) >= obj2Data.x) &&     // r1 right edge past r2 left
-        ((obj2Data.x + obj2Data.width) >= obj1Data.x) &&       // r1 left edge past r2 right
-        ((obj1Data.y + obj1Data.height) >= obj2Data.y) &&       // r1 top edge past r2 bottom
-        ((obj2Data.y + obj2Data.height) >= obj1Data.y)) {       // r1 bottom edge past r2 top
+    if (((obj1Data.x + obj1Data.width) >= obj2Data.x) &&
+        ((obj2Data.x + obj2Data.width) >= obj1Data.x) &&
+        ((obj1Data.y + obj1Data.height) >= obj2Data.y) &&
+        ((obj2Data.y + obj2Data.height) >= obj1Data.y)) {
         return true;
     }
     
@@ -65,11 +65,10 @@ function circleRectCollide(circleData, rectData) {
     let testX = circleData.x;
     let testY = circleData.y;
 
-    // which edge is closest?
-    if (circleData.x < rectData.x)                       testX = rectData.x;      // test left edge
-    else if (circleData.x > rectData.x + rectData.width) testX = rectData.x+rectData.width;   // right edge
-    if (circleData.y < rectData.y)                       testY = rectData.y;      // top edge
-    else if (circleData.y > rectData.y+rectData.height)  testY = rectData.y+rectData.height;   // bottom edge
+    if (circleData.x < rectData.x)                       testX = rectData.x;
+    else if (circleData.x > rectData.x + rectData.width) testX = rectData.x+rectData.width;
+    if (circleData.y < rectData.y)                       testY = rectData.y;
+    else if (circleData.y > rectData.y+rectData.height)  testY = rectData.y+rectData.height;
 
     // get distance from closest edges
     let distX = circleData.x-testX;
